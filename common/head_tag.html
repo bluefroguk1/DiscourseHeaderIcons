@@ -26,8 +26,8 @@
                     title = 'Closed since '+shutter.date;
                 }
             } catch (e) {}
-            return helper.h('li.header-dropdown-toggle', [
-                helper.h('a.shutter-icon', {
+            return helper.h('li.header-dropdown-toggle.shutter-status', [
+                helper.h('a.icon', {
                     href:'/calendar',
                     title: title
                 }, iconNode(icon)),
