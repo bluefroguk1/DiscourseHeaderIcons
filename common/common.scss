@@ -1,3 +1,9 @@
+body:not(.group-members) .shutter-status {
+    display: none;
+    visibility: hidden;
+}
+
+
 .d-header-icons .d-icon-check {
     color: green;
 }
