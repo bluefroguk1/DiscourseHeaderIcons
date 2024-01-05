@@ -3,6 +3,10 @@ body:not(.group-members) .shutter-status {
     visibility: hidden;
 }
 
+body:not(.group-members) .doc-header-set {
+    display: none;
+    visibility: hidden;
+}
 
 .d-header-icons .d-icon-calendar-check {
     color: green;
