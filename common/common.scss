@@ -35,13 +35,6 @@ body:not(.group-members) .doc-header-set {
 }
 
 
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  color: #999;
-}
 
 .d-header-icons .icon.doc {
   background: hsl(0, 0%, 100%);
