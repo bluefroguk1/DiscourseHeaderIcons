@@ -30,6 +30,6 @@ body:not(.group-members) .doc-header-set {
 
 .d-header-icons {
     display: flex;
-    justify-content: space-between;
-    margin: 0px; /* Adjust the value */
+    //justify-content: space-between;
+    gap: 5px; /* Smaller value brings items closer */
 }
