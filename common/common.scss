@@ -10,3 +10,16 @@ body:not(.group-members) .shutter-status {
 .d-header-icons .d-icon-times {
     color: red;
 }
+
+.d-header-icons .icon.doc {
+    width: auto;
+    gap: 0.5em;
+    margin-inline: 1em;
+    //font-size: 1.5em;
+    color: grey;
+    
+    
+    & .d-icon {
+        width: 1em;
+    }
+}
