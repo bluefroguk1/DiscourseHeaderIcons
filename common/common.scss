@@ -27,3 +27,7 @@ body:not(.group-members) .doc-header-set {
         width: 1em;
     }
 }
+
+.d-header-icons > * {
+    padding: 5px; /* Adjust the value to suit your needs */
+}
