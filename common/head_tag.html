@@ -10,19 +10,19 @@
     });
         api.decorateWidget('header-icons:before', (helper) => {
             //https://fontawesome.com/v5.15/icons?d=gallery&p=2&q=times&s=regular,solid&m=free
-            let icon = 'question';
+            let icon = 'calendar';
             let title = 'Open status: unknown';
             try {
                 const cache = JSON.parse(settings.tool_status);
                 const shutter = cache.tools[4];
                 if (shutter.status)
                 {
-                    icon = 'check';
+                    icon = 'calendar-check';
                     title = 'Open since '+shutter.date;
                 }
                 else
                 {
-                    icon = 'times';
+                    icon = 'calendar-alt';
                     title = 'Closed since '+shutter.date;
                 }
             } catch (e) {}
