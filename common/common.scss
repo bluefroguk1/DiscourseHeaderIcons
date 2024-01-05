@@ -29,6 +29,6 @@ body:not(.group-members) .doc-header-set {
 }
 
 .d-header-icons {
-        display: grid;
-        gap: 10px; /* Adjust the value */
+    display: flex;
+    justify-content: space-between;
 }
