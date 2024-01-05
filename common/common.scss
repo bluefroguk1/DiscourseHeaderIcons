@@ -31,5 +31,5 @@ body:not(.group-members) .doc-header-set {
 .d-header-icons {
     display: flex;
     //justify-content: space-between;
-    gap: -100px; /* Smaller value brings items closer */
+    margin: -5px;
 }
