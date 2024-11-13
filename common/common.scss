@@ -1,34 +1,30 @@
-body:not(.group-members) .shutter-status {
-    display: none;
-    visibility: hidden;
+body:not(.group-members) .header-buttons .documents-button,
+body:not(.group-members) .header-buttons .shutter-status-button {
+  display: none;
 }
 
-body:not(.group-members) .doc-header-set {
-    display: none;
-    visibility: hidden;
+.header-buttons .d-icon-calendar-check {
+  color: green;
 }
 
-.d-header-icons .d-icon-calendar-check {
-    color: green;
+.header-buttons .d-icon-calendar-alt {
+  color: red;
 }
 
-.d-header-icons .d-icon-calendar-alt {
-    color: red;
+.header-buttons .documents-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-inline: 1em;
+  color: grey;
+
+  .d-icon {
+    width: 1em;
+  }
 }
 
-.d-header-icons .icon.doc {
-    width: auto;
-    gap: 0.5em;
-    margin-inline: 1em;
-    color: grey;
-
-    & .d-icon {
-        width: 1em;
-    }
-}
-
-.d-header-icons {
-    display: flex;
-    margin: -5px;
-    align-items: center;
+.header-buttons {
+  display: flex;
+  align-items: center;
+  margin: -5px;
 }
