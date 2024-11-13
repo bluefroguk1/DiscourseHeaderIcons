@@ -11,7 +11,8 @@ body:not(.group-members) .doc-header-set {
 .d-header-icons .d-icon-calendar-check {
     color: green;
 }
-.d-header-icons .d-icon- {
+
+.d-header-icons .d-icon-calendar-alt {
     color: red;
 }
 
@@ -19,10 +20,8 @@ body:not(.group-members) .doc-header-set {
     width: auto;
     gap: 0.5em;
     margin-inline: 1em;
-    //font-size: 1.5em;
     color: grey;
-    
-    
+
     & .d-icon {
         width: 1em;
     }
@@ -30,7 +29,6 @@ body:not(.group-members) .doc-header-set {
 
 .d-header-icons {
     display: flex;
-    //justify-content: space-between;
     margin: -5px;
     align-items: center;
 }
