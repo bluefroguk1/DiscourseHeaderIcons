@@ -1,38 +1,38 @@
 <script type="text/discourse-plugin" version="0.8">
     const { iconNode } = require("discourse-common/lib/icon-library");
-
-    // Documents button
-    api.headerButtons((buttons) => {
-        buttons.add("documents", {
-            title: "Documents",
-            href: "/docs",
-            icon: "book",
-            class: "doc-header-set",
-            text: "Documents"
-        });
+    api.decorateWidget('header-icons:before', helper => {
+        return helper.h('div.d-header-icons.doc-header-set', [
+            helper.h('a.icon.btn-flat.doc', {
+                href:'/docs',
+                title: 'Documents'
+            }, [iconNode("book"), "Documents"]),
+        ]);
     });
 
-    // Shutter Status button with dynamic icon and title
-    api.headerButtons((buttons) => {
-        let icon = "calendar";
-        let title = "Open status: unknown";
-        try {
-            const cache = JSON.parse(settings.tool_status);
-            const shutter = cache.tools[4];
-            if (shutter.status) {
-                icon = "calendar-check";
-                title = "Open since " + shutter.date;
-            } else {
-                icon = "calendar-alt";
-                title = "Closed since " + shutter.date;
-            }
-        } catch (e) {}
-
-        buttons.add("shutter-status", {
-            title: title,
-            href: "/calendar",
-            icon: icon,
-            class: "shutter-status"
+    
+        api.decorateWidget('header-icons:before', (helper) => {
+            //https://fontawesome.com/v5.15/icons?d=gallery&p=2&q=times&s=regular,solid&m=free
+            let icon = 'calendar';
+            let title = 'Open status: unknown';
+            try {
+                const cache = JSON.parse(settings.tool_status);
+                const shutter = cache.tools[4];
+                if (shutter.status)
+                {
+                    icon = 'calendar-check';
+                    title = 'Open since '+shutter.date;
+                }
+                else
+                {
+                    icon = 'calendar-alt';
+                    title = 'Closed since '+shutter.date;
+                }
+            } catch (e) {}
+            return helper.h('div.d-header-icons.shutter-status', [
+                helper.h('a.icon', {
+                    href:'/calendar',
+                    title: title
+                }, iconNode(icon)),
+            ]);
         });
-    });
-</script>
+    </script>
