@@ -1,18 +1,22 @@
 <script type="text/discourse-plugin" version="0.8">
     const { iconNode } = require("discourse-common/lib/icon-library");
 
-    // Adding "Documents" icon using the new `headerIcons` API
-    api.headerIcons((icons) => {
-        icons.add("doc-header-set", "book", {
-            title: "Documents",
-            href: "/docs",
-            class: "doc-header-set",
-            text: "Documents"
-        });
+    // Inject "Documents" icon in the header using `decorateWidget`
+    api.decorateWidget("header:after", (helper) => {
+        return helper.h("div.d-header-icons.doc-header-set", [
+            helper.h(
+                "a.icon.btn-flat.doc",
+                {
+                    href: "/docs",
+                    title: "Documents",
+                },
+                [iconNode("book"), "Documents"]
+            ),
+        ]);
     });
 
-    // Adding calendar status icon using `headerIcons` API
-    api.headerIcons((icons) => {
+    // Inject calendar status icon in the header using `decorateWidget`
+    api.decorateWidget("header:after", (helper) => {
         let icon = "calendar";
         let title = "Open status: unknown";
         try {
@@ -27,10 +31,15 @@
             }
         } catch (e) {}
 
-        icons.add("shutter-status", icon, {
-            title: title,
-            href: "/calendar",
-            class: "shutter-status"
-        });
+        return helper.h("div.d-header-icons.shutter-status", [
+            helper.h(
+                "a.icon",
+                {
+                    href: "/calendar",
+                    title: title,
+                },
+                iconNode(icon)
+            ),
+        ]);
     });
 </script>
