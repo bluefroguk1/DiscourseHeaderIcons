@@ -1,31 +1,36 @@
-body:not(.group-members) .header-buttons .shutter-status,
-body:not(.group-members) .header-buttons .doc-header-set {
+body:not(.group-members) .shutter-status {
     display: none;
     visibility: hidden;
 }
 
-.header-buttons .d-icon-calendar-check {
-    color: green;
+body:not(.group-members) .doc-header-set {
+    display: none;
+    visibility: hidden;
 }
 
-.header-buttons .d-icon-calendar-alt {
+.d-header-icons .d-icon-calendar-check {
+    color: green;
+}
+.d-header-icons .d-icon- {
     color: red;
 }
 
-.header-buttons .doc-header-set {
-    display: flex;
-    align-items: center;
+.d-header-icons .icon.doc {
+    width: auto;
     gap: 0.5em;
     margin-inline: 1em;
+    //font-size: 1.5em;
     color: grey;
-
-    .d-icon {
+    
+    
+    & .d-icon {
         width: 1em;
     }
 }
 
-.header-buttons {
+.d-header-icons {
     display: flex;
-    align-items: center;
+    //justify-content: space-between;
     margin: -5px;
+    align-items: center;
 }
