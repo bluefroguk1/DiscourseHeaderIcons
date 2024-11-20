@@ -1,14 +1,21 @@
 <script type="text/discourse-plugin" version="0.8">
     const { iconNode } = require("discourse-common/lib/icon-library");
     const Component  = require("@ember/component");
-    api.decorateWidget('header-icons:before', helper => {
+    
+    api.headerIcons.add("foo", Component.extend({
+        tagName: 'a',
+        className: 'icon',
+        href: '/calendar',
+        title: 'SLMS Calendar'
+    }), { before: "search" });
+<!--     api.decorateWidget('header-icons:before', helper => {
         return helper.h('li.header-dropdown-toggle', [
             helper.h('a.icon', {
                 href:'/calendar',
                 title: 'SLMS Calendar'
             }, iconNode("calendar-alt")),
         ]);
-    });
+    }); -->
     if (settings.shutter_tick_enable && Object.values(api.getCurrentUser().groups).findIndex(o => o.name === 'members') !== -1)
     {
         api.decorateWidget('header-icons:before', (helper) => {
