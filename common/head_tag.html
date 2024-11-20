@@ -8,14 +8,14 @@
         href: '/calendar',
         title: 'SLMS Calendar'
     }), { before: "search" });
-<!--     api.decorateWidget('header-icons:before', helper => {
+/*    api.decorateWidget('header-icons:before', helper => {
         return helper.h('li.header-dropdown-toggle', [
             helper.h('a.icon', {
                 href:'/calendar',
                 title: 'SLMS Calendar'
             }, iconNode("calendar-alt")),
         ]);
-    }); -->
+    });*/
     if (settings.shutter_tick_enable && Object.values(api.getCurrentUser().groups).findIndex(o => o.name === 'members') !== -1)
     {
         api.decorateWidget('header-icons:before', (helper) => {
