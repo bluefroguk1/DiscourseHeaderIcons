@@ -1,6 +1,6 @@
 <script type="text/discourse-plugin" version="0.8">
     const { iconNode } = require("discourse-common/lib/icon-library");
-    const Component  = require("@ember/component");
+    const Component  = require("@ember/component").default;
     
     api.headerIcons.add("foo", Component.extend({
         tagName: 'a',
