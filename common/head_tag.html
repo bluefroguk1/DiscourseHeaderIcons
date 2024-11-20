@@ -1,5 +1,6 @@
 <script type="text/discourse-plugin" version="0.8">
     const { iconNode } = require("discourse-common/lib/icon-library");
+    const Component  = require("@ember/component");
     api.decorateWidget('header-icons:before', helper => {
         return helper.h('li.header-dropdown-toggle', [
             helper.h('a.icon', {
