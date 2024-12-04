@@ -14,7 +14,7 @@ export default apiInitializer("1.34.0", (api) => {
       icon = "calendar-check";
       title = "Open since " + shutter.date;
     } else {
-      icon = "calendar-alt";
+      icon = "calendar-days";
       title = "Closed since " + shutter.date;
     }
   } catch (e) {
