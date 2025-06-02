@@ -1,5 +1,6 @@
 {
     "name": "SLMS Header Icons",
+    "javascript": ["javascripts/discourse/api-initializers/add-header-icons.js"],
     "component": true,
     "about_url": "https://github.com/southlondonmakerspace/DiscourseHeaderIcons/blob/main/README.md",
     "license_url": "https://github.com/southlondonmakerspace/DiscourseHeaderIcons/blob/main/LICENSE",
