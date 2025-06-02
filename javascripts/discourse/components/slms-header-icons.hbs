@@ -1,0 +1,15 @@
+<ul class="header-icons">
+  <li class="header-dropdown-toggle">
+    <a class="icon" href="/calendar" title="SLMS Calendar">
+      {{d-icon "calendar-alt"}}
+    </a>
+  </li>
+
+  {{#if this.showShutterIcon}}
+    <li class="header-dropdown-toggle">
+      <a class="icon" href="/calendar" title={{this.shutterTitle}}>
+        {{d-icon this.shutterIcon}}
+      </a>
+    </li>
+  {{/if}}
+</ul>
