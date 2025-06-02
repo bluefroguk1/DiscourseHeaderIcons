@@ -1,40 +1,57 @@
-<script type="text/discourse-plugin" version="0.8">
-    const { iconNode } = require("discourse-common/lib/icon-library");
-    api.decorateWidget('header-icons:before', helper => {
-        return helper.h('li.header-dropdown-toggle', [
-            helper.h('a.icon', {
-                href:'/calendar',
-                title: 'SLMS Calendar'
-            }, iconNode("calendar-alt")),
+<script type="text/discourse-plugin" version="0.12">
+  const { iconNode } = require("discourse-common/lib/icon-library");
+
+  api.decorateWidget("header-icons:before", (helper) => {
+    return helper.h("li.header-dropdown-toggle", [
+      helper.h(
+        "a.icon",
+        {
+          href: "/calendar",
+          title: "SLMS Calendar",
+        },
+        iconNode("calendar-alt")
+      ),
+    ]);
+  });
+
+  api.onPageChange(() => {
+    const currentUser = api.getCurrentUser();
+    if (
+      settings.shutter_tick_enable &&
+      currentUser &&
+      currentUser.groups.some((group) => group.name === "members")
+    ) {
+      api.decorateWidget("header-icons:before", (helper) => {
+        let icon = "question";
+        let title = "Open status: unknown";
+
+        try {
+          const cache = JSON.parse(settings.tool_status);
+          const shutter = cache.tools?.[4];
+          if (shutter) {
+            if (shutter.status) {
+              icon = "check";
+              title = `Open since ${shutter.date}`;
+            } else {
+              icon = "times";
+              title = `Closed since ${shutter.date}`;
+            }
+          }
+        } catch (e) {
+          console.warn("Error parsing shutter status", e);
+        }
+
+        return helper.h("li.header-dropdown-toggle", [
+          helper.h(
+            "a.icon",
+            {
+              href: "/calendar",
+              title: title,
+            },
+            iconNode(icon)
+          ),
         ]);
-    });
-    if (settings.shutter_tick_enable && Object.values(api.getCurrentUser().groups).findIndex(o => o.name === 'members') !== -1)
-    {
-        api.decorateWidget('header-icons:before', (helper) => {
-            //https://fontawesome.com/v5.15/icons?d=gallery&p=2&q=times&s=regular,solid&m=free
-            let icon = 'question';
-            let title = 'Open status: unknown';
-            try {
-                const cache = JSON.parse(settings.tool_status);
-                const shutter = cache.tools[4];
-                if (shutter.status)
-                {
-                    icon = 'check';
-                    title = 'Open since '+shutter.date;
-                }
-                else
-                {
-                    icon = 'times';
-                    title = 'Closed since '+shutter.date;
-                }
-            } catch (e) {}
-            return helper.h('li.header-dropdown-toggle', [
-                helper.h('a.icon', {
-                    href:'/calendar',
-                    title: title
-                }, iconNode(icon)),
-            ]);
-        });
+      });
     }
-    
-    </script>
+  });
+</script>
