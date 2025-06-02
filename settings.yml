@@ -5,3 +5,6 @@ tool_status:
 shutter_tick_enable:
   type: bool
   default: true
+
+javascript:
+  - header-icons-calendar.js
