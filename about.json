@@ -4,5 +4,7 @@
     "about_url": "https://github.com/southlondonmakerspace/DiscourseHeaderIcons/blob/main/README.md",
     "license_url": "https://github.com/southlondonmakerspace/DiscourseHeaderIcons/blob/main/LICENSE",
      "assets": {
-     }
+     },
+    "javascript":
+      - header-icons-calendar.js
 }
